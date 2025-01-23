@@ -1,0 +1,119 @@
+/* CSS custom para sobrescrever o tema default */
+:root {
+  --menu-height: 100px;
+}
+
+.custom-wrapper .custom-menu {
+  padding-bottom: 1rem;
+}
+
+.custom-wrapper .custom-menu ul {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  list-style: none;
+}
+
+.custom-wrapper .custom-menu ul li {
+  flex: 1;
+}
+
+.custom-wrapper .custom-menu ul li:nth-child(6) {
+  order: 7;
+}
+
+.custom-wrapper .custom-menu ul li:nth-child(7) {
+  order: 9;
+}
+
+.custom-wrapper .custom-menu ul li:nth-child(8) {
+  order: 10;
+}
+
+.custom-wrapper .custom-menu ul li:nth-child(9) {
+  order: 11;
+}
+
+.custom-wrapper .custom-menu ul li:nth-child(10) {
+  order: 12;
+}
+
+.custom-wrapper .custom-menu ul li:nth-child(11) {
+  order: 6;
+}
+
+.custom-wrapper .custom-menu ul li:last-child {
+  order: 8;
+}
+
+.custom-wrapper .custom-menu po-button,
+.custom-wrapper .custom-menu button {
+  width: 100%;
+}
+
+.custom-wrapper .custom-menu button {
+  --color: var(--color-neutral-dark-95);
+  font-weight: var(--font-weight-lvl1);
+  padding: 1rem;
+  border: none;
+}
+
+.custom-wrapper .custom-menu button:hover {
+  --color: var(--color-neutral-dark-95);
+}
+
+.custom-wrapper .custom-menu .po-button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.custom-wrapper .custom-menu .po-button-icon {
+  font-size: 1.5rem;
+}
+
+.custom-wrapper .custom-container .po-container {
+  display: flex;
+  padding: 0px;
+}
+
+.custom-wrapper .bottom-container {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.custom-wrapper .bottom-container .po-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  padding: 0px;
+}
+
+.custom-wrapper .bottom-container h1 {
+  font-size: 3rem;
+}
+
+.custom-wrapper .bottom-container .po-button {
+  margin-right: 0.4rem;
+}
+
+.popover-colors .po-popover {
+  min-height: auto;
+}
+
+.popover-colors .po-popover .po-popover-content {
+  display: flex;
+  gap: 1rem;
+}
+
+.popover-colors .po-popover button {
+  padding: 0;
+  border: none;
+  min-height: auto;
+  min-width: auto;
+}
+
+.popover-colors .po-popover button:hover {
+  background-color: transparent;
+}

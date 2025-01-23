@@ -1,0 +1,157 @@
+<po-container class="custom-wrapper">
+  <div class="custom-menu">
+    <nav>
+      <ul>
+        <li *ngFor="let item of menuItems">
+          <po-button
+            [p-icon]="item.icon"
+            [p-label]="item.label"
+            (click)="item.action()"
+          >
+          </po-button>
+        </li>
+        <li>
+          <po-button
+            #poButtonColors
+            p-label="Cores"
+            p-icon="ph ph-paint-bucket"
+          ></po-button>
+        </li>
+        <li>
+          <po-button
+            #poButtonFontSize
+            p-label="Fonte"
+            p-icon="ph ph-text-t"
+          ></po-button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <po-container #canvasContainer class="custom-container">
+    <canvas
+      #canvas
+      [width]="imgWidth || 384"
+      [height]="imgHeight || 815"
+      (mousedown)="startDrawing($event)"
+      (mousemove)="draw($event)"
+      (mouseup)="stopDrawing($event)"
+    >
+    </canvas>
+  </po-container>
+
+  <po-container class="bottom-container">
+    <h1>CHAPA: 0018556-043</h1>
+
+    <span *ngIf="hasError" class="error-message" style="color: red">
+      {{ errorMessage }}
+    </span>
+    <po-button p-label="Sair" (p-click)="closeApp()"></po-button>
+  </po-container>
+</po-container>
+
+<po-popover
+  [p-target]="poButtonColorsRef.nativeElement"
+  p-position="bottom"
+  class="popover-colors"
+>
+  <po-button [p-icon]="blackTemplate" (p-click)="setCurrentColor('black')">
+    <ng-template #blackTemplate>
+      <svg width="20" height="20">
+        <rect width="20" height="20" fill="black"></rect>
+      </svg>
+    </ng-template>
+  </po-button>
+
+  <po-button [p-icon]="grayTemplate" (p-click)="setCurrentColor('gray')">
+    <ng-template #grayTemplate>
+      <svg width="20" height="20">
+        <rect width="20" height="20" fill="gray"></rect>
+      </svg>
+    </ng-template>
+  </po-button>
+
+  <po-button [p-icon]="brownTemplate" (p-click)="setCurrentColor('brown')">
+    <ng-template #brownTemplate>
+      <svg width="20" height="20">
+        <rect width="20" height="20" fill="brown"></rect>
+      </svg>
+    </ng-template>
+  </po-button>
+
+  <po-button [p-icon]="redTemplate" (p-click)="setCurrentColor('red')">
+    <ng-template #redTemplate>
+      <svg width="20" height="20">
+        <rect width="20" height="20" fill="red"></rect>
+      </svg>
+    </ng-template>
+  </po-button>
+
+  <po-button [p-icon]="orangeTemplate" (p-click)="setCurrentColor('orange')">
+    <ng-template #orangeTemplate>
+      <svg width="20" height="20">
+        <rect width="20" height="20" fill="orange"></rect>
+      </svg>
+    </ng-template>
+  </po-button>
+
+  <po-button [p-icon]="yellowTemplate" (p-click)="setCurrentColor('yellow')">
+    <ng-template #yellowTemplate>
+      <svg width="20" height="20">
+        <rect width="20" height="20" fill="yellow"></rect>
+      </svg>
+    </ng-template>
+  </po-button>
+
+  <po-button [p-icon]="greenTemplate" (p-click)="setCurrentColor('green')">
+    <ng-template #greenTemplate>
+      <svg width="20" height="20">
+        <rect width="20" height="20" fill="green"></rect>
+      </svg>
+    </ng-template>
+  </po-button>
+
+  <po-button [p-icon]="blueTemplate" (p-click)="setCurrentColor('blue')">
+    <ng-template #blueTemplate>
+      <svg width="20" height="20">
+        <rect width="20" height="20" fill="blue"></rect>
+      </svg>
+    </ng-template>
+  </po-button>
+
+  <po-button [p-icon]="purpleTemplate" (p-click)="setCurrentColor('purple')">
+    <ng-template #purpleTemplate>
+      <svg width="20" height="20">
+        <rect width="20" height="20" fill="purple"></rect>
+      </svg>
+    </ng-template>
+  </po-button>
+
+  <po-button [p-icon]="pinkTemplate" (p-click)="setCurrentColor('pink')">
+    <ng-template #pinkTemplate>
+      <svg width="20" height="20">
+        <rect width="20" height="20" fill="pink"></rect>
+      </svg>
+    </ng-template>
+  </po-button>
+</po-popover>
+
+<po-popover
+  [p-target]="poButtonFontSizeRef.nativeElement"
+  p-position="bottom"
+  class="popover-colors"
+>
+  <po-button (p-click)="setFontSize(12)" p-label="12"> </po-button>
+
+  <po-button (p-click)="setFontSize(14)" p-label="14"> </po-button>
+
+  <po-button (p-click)="setFontSize(16)" p-label="16"> </po-button>
+
+  <po-button (p-click)="setFontSize(18)" p-label="18"> </po-button>
+
+  <po-button (p-click)="setFontSize(20)" p-label="20"> </po-button>
+
+  <po-button (p-click)="setFontSize(22)" p-label="22"> </po-button>
+
+  <po-button (p-click)="setFontSize(24)" p-label="24"> </po-button>
+</po-popover>
