@@ -68,6 +68,8 @@ export class AppComponent implements OnInit {
 
   private actionHistory: string[] = [];
 
+  private apiParams: any = '';
+
   imgWidth = 0;
   imgHeight = 0;
   errorMessage: string = '';
@@ -122,7 +124,7 @@ export class AppComponent implements OnInit {
     {
       label: 'Etiqueta',
       icon: 'ph ph-barcode',
-      action: () => this.click(),
+      action: () => console.log('tag'),
     },
   ];
 
@@ -130,25 +132,23 @@ export class AppComponent implements OnInit {
     private proAppConfigService: ProAppConfigService,
     private proJsToAdvplService: ProJsToAdvplService
   ) {
-    this.proJsToAdvplService.jsToAdvpl('receberProtheus', '');
+    this.getApiParams();
+  }
 
-    // if (!data) {
-    //   this.throwError('Erro ao buscar os dados.');
+  private getApiParams() {
+    const data = this.proJsToAdvplService.jsToAdvpl('receberProtheus', '');
 
-    //   setTimeout(() => this.closeApp(), 5000);
-    // }
+    if (!data) {
+      this.throwError('Erro ao buscar os dados.');
+
+      setTimeout(() => this.closeApp(), 5000);
+    }
 
     // const pairs = data.split('|');
     // const result = Object.fromEntries(pairs.map((pair) => pair.split('=')));
     // console.log(result);
-  }
 
-  click() {
-    alert('pedro teste');
-
-    this.proJsToAdvplService.jsToAdvpl('receberProtheus', '');
-
-    alert(this.proJsToAdvplService.jsToAdvpl('receberProtheus', ''));
+    this.apiParams = data;
   }
 
   ngOnInit() {
@@ -647,6 +647,7 @@ export class AppComponent implements OnInit {
     // }
 
     try {
+      alert(this.apiParams);
     } catch (error) {
       console.error(error);
     }
